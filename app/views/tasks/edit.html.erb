@@ -1,6 +1,9 @@
 <h1>id: <%= @task.id %> のタスク編集ページ</h1>
 
 <%= form_for(@task) do |f| %>
+  <%= f.label :staus, 'ステータス' %>
+  <%= f.text_field :status %>
+
   <%= f.label :content, 'メッセージ' %>
   <%= f.text_field :content %>
   
