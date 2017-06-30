@@ -1,6 +1,19 @@
 <h1>id = <%= @task.id %> 詳細ページ</h1>
 <p>ステイタス: <%= @task.status %></p>
 <p><%= @task.content %></p>
+
+<% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+        <% task.errors.full_tasks.each do |task| %>
+          <li><%= task %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <%= link_to '一覧に戻る', tasks_path %>
 <%= link_to 'このタスクを編集する', edit_task_path(@task) %>
 <%= link_to 'このタスクを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
